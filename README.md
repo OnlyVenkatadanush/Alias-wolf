@@ -45,6 +45,7 @@ User Research: Helpful for researching social media profiles or accounts for bra
 Brand & Domain Name Validation: Ideal for businesses to check the availability of brand names on various platforms.
 
 Security Research: Assess the consistency of usernames and profiles across multiple websites for identity verification.
+
 ---
 ## 🛠️ Usage
 
