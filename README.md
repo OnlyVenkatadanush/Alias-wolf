@@ -14,6 +14,7 @@
     <img src="https://img.shields.io/github/forks/OnlyVenkatadanush/Alias-wolf?style=for-the-badge">
   </a>
     
+[![Visit My Profile](https://img.shields.io/badge/GitHub-OnlyVenkatadanush-0A66C2?style=for-the-badge)](https://github.com/OnlyVenkatadanush)
 [![Star](https://img.shields.io/badge/Star-Repo-yellow?style=for-the-badge)](https://github.com/OnlyVenkatadanush/Alias-wolf/stargazers)
 [![Follow](https://img.shields.io/badge/Follow-Me-0A66C2?style=for-the-badge)](https://github.com/OnlyVenkatadanush)
 </p>
