@@ -35,6 +35,24 @@ Built with love using **Streamlit**, **Python Asyncio**, and **aiohttp**.
 - 📦 Ready to deploy on Streamlit Cloud
 
 ---
+## Applications:
+Username Availability Check: Quickly check if a username is available across multiple social media platforms.
+
+Profile Link Retrieval: Automatically retrieve direct profile links for available usernames.
+
+User Research: Helpful for researching social media profiles or accounts for brand or personal use.
+
+Brand & Domain Name Validation: Ideal for businesses to check the availability of brand names on various platforms.
+
+Security Research: Assess the consistency of usernames and profiles across multiple websites for identity verification.
+---
+## 🛠️ Usage
+
+1. **Enter a Username**: Type the desired username in the input field.
+2. **Click 'Start Scan'**: The app will scan popular platforms to check the username's availability.
+3. **View Results**: The results are displayed in a table, showing the platform, status, and direct profile link (if available).
+4. **Download Results**: You can download the scan results in CSV, Excel, or PDF formats.
+---
 
 ## 📸 Screenshots
 # scanned results
