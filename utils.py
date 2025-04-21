@@ -1,20 +1,38 @@
-import csv
-import json
+# utils.py
+
+import pandas as pd
+from datetime import datetime
 import os
+from io import BytesIO
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
-def log_results(username, results):
-    print(f"\nScan results for '{username}':\n" + "-"*40)
-    for platform, status, url in results:
-        print(f"[{status}] {platform}: {url}")
+def save_results(df, filetype="csv"):
+    buffer = BytesIO()
+    now = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    if filetype == "csv":
+        df.to_csv(buffer, index=False)
+    elif filetype == "excel":
+        df.to_excel(buffer, index=False)
+    
+    buffer.seek(0)
+    return buffer
 
-def save_to_file(username, results, filetype="json"):
-    os.makedirs("results", exist_ok=True)
-    if filetype == "json":
-        with open(f"results/{username}.json", "w") as f:
-            json.dump(results, f, indent=4)
-    elif filetype == "csv":
-        with open(f"results/{username}.csv", "w", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(["Platform", "Status", "URL"])
-            for row in results:
-                writer.writerow(row)
+def export_to_pdf(df):
+    buffer = BytesIO()
+    c = canvas.Canvas(buffer, pagesize=letter)
+    width, height = letter
+
+    textobject = c.beginText(40, height - 50)
+    textobject.setFont("Helvetica", 12)
+
+    for index, row in df.iterrows():
+        line = f"{row['site']} - {row['status']} - {row['url']}"
+        textobject.textLine(line)
+    
+    c.drawText(textobject)
+    c.showPage()
+    c.save()
+    buffer.seek(0)
+    return buffer

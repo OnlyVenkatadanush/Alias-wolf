@@ -1,34 +1,50 @@
+# scanner.py
+
 import asyncio
 import aiohttp
+import pandas as pd
 import json
 
+with open('data/config.json', 'r') as f:
+    sites = json.load(f)
+    print("[DEBUG] Sites loaded:", sites)
+def getprofilelink(username,platform):
+    return f"https://{platform}.com/{username}"
 
-async def check_username(session, platform, url_template, username):
-    url = url_template.replace("{username}", username)
+async def check_site(session, site, username):
     try:
-        async with session.get(url, timeout=10) as resp:
-            if resp.status == 200:
-                return (platform, "FOUND", url)
-            elif resp.status == 404:
-                return (platform, "NOT FOUND", url)
-            elif resp.status == 429:
-                return (platform, "(429 Too Many Requests)", url)
+        url = site["url"].format(username=username)
+        async with session.get(url, timeout=10) as response:
+            if response.status == 200:
+                profile_link = getprofilelink(username, site["name"].lower())
+                return {"site": site["name"], "url": url, "status": "Found","Profile link":profile_link}
+            elif response.status == 404:
+                return {"site": site["name"], "url": url, "status": "Not Found","Profile link":None}
+            elif response.status == 429:
+                return {"site": site["name"], "url": url, "status": "Too Many Requests","Profile link":None}
+            elif response.status == 403:
+                return {"site": site["name"], "url": url, "status": "Forbidden","Profile link":None}
+            elif response.status == 500:
+                return {"site": site["name"], "url": url, "status": "Internal Server Error","Profile link":None}
+            elif response.status == 503:
+                return {"site": site["name"], "url": url, "status": "Service Unavailable","Profile link":None}
+            elif response.status == 301 or response.status == 302:
+                return {"site": site["name"], "url": url, "status": "Moved Permanently","Profile link":None}
+            elif response.status == 401:
+                return {"site": site["name"], "url": url, "status": "Unauthorized","Profile link":None} 
+            elif response.status == 408:
+                return {"site": site["name"], "url": url, "status": "Request Timeout","Profile link":None}
             else:
-                return (platform, f"ERROR ({resp.status})", url)
-    except Exception as e:
-        return (platform, f"ERROR ({str(e)})", url)
+                return {"site": site["name"], "url": url, "status": f"Status {response.status}","Profile link":None}
+    except Exception:
+        return {"site": site["name"], "url": "", "status": "Error"}
 
-async def scan_user(username, config):
-    results = []
-    '''user_agents=[
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0"
-    ]'''
-    headers = {"User-Agent": "Mozilla/5.0"}
-    async with aiohttp.ClientSession(headers=headers) as session:
-        tasks = []
-        for platform, url_template in config["platforms"].items():
-            tasks.append(check_username(session, platform, url_template, username))
-        results = await asyncio.gather(*tasks)
-    return results
+async def scan_all(username):
+    async with aiohttp.ClientSession() as session:
+        tasks = [check_site(session, site, username) for site in sites]
+        return await asyncio.gather(*tasks)
+
+def scan_username(username):
+    results = asyncio.run(scan_all(username))
+    df = pd.DataFrame(results)
+    return df

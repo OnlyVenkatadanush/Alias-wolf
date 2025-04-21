@@ -1,0 +1,6 @@
+streamlit
+aiohttp
+asyncio
+pandas
+openpyxl
+reportlab
