@@ -37,6 +37,10 @@ Built with love using **Streamlit**, **Python Asyncio**, and **aiohttp**.
 ---
 
 ## 📸 Screenshots
+# scanned results
+![AliasWolf Screenshot](photos/screenshot1.png)
+# Download the results
+![AliasWolf Screenshot](photos/screenshot2.png)
 
 
 
