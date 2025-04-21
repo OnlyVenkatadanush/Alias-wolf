@@ -21,7 +21,7 @@
 
 AliasWolf is a blazing fast **username scanner** that checks if a given username exists across multiple platforms — like social media, forums, websites — and provides you with the direct **profile link**.  
 Built with love using **Streamlit**, **Python Asyncio**, and **aiohttp**.
-
+[![Visit Alias wolf](https://img.shields.io/badge/Check_it_Out-0A66C2?style=for-the-badge)](https://aliaswolf.streamlit.app/)
 ---
 
 ## 🧩 Features
@@ -53,6 +53,7 @@ Security Research: Assess the consistency of usernames and profiles across multi
 2. **Click 'Start Scan'**: The app will scan popular platforms to check the username's availability.
 3. **View Results**: The results are displayed in a table, showing the platform, status, and direct profile link (if available).
 4. **Download Results**: You can download the scan results in CSV, Excel, or PDF formats.
+---
 [![Visit Alias wolf](https://img.shields.io/badge/Check_it_Out-0A66C2?style=for-the-badge)](https://aliaswolf.streamlit.app/)
 
 
