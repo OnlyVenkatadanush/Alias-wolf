@@ -63,11 +63,11 @@ pip install -r requirements.txt
 2.Run the Streamlit app:
 streamlit run app.py
 ```
-##🎯 Future Improvements
--*Add more platforms for username checking.*
+## 🎯 Future Improvements
+- *Add more platforms for username checking.*
 
--*Integrate user authentication to track previous scans.*
+- *Integrate user authentication to track previous scans.*
 
--*Add support for more complex username patterns and checks.*
+- *Add support for more complex username patterns and checks.*
 
--*Incorporate more data visualizations.*
+- *Incorporate more data visualizations.*
