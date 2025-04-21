@@ -1,0 +1,1 @@
+parser = argparse.ArgumentParser(description="Username scanner across social media.")
