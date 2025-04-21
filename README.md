@@ -4,9 +4,15 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Streamlit-Deployed-success?style=for-the-badge&logo=streamlit&logoColor=white&color=FF4B4B">
-  <img src="https://img.shields.io/github/stars/OnlyVenkatadanush/Alias-wolf?style=for-the-badge">
-  <img src="https://img.shields.io/github/forks/OnlyVenkatadanush/Alias-wolf?style=for-the-badge">
+  <a href="https://aliaswolf.streamlit.app/">
+    <img src="https://img.shields.io/badge/Streamlit-Deployed-success?style=for-the-badge&logo=streamlit&logoColor=white&color=FF4B4B">
+  </a>
+  <a href="https://github.com/OnlyVenkatadanush/Alias-wolf/stargazers">
+    <img src="https://img.shields.io/github/stars/OnlyVenkatadanush/Alias-wolf?style=for-the-badge">
+  </a>
+  <a href="https://github.com/OnlyVenkatadanush/Alias-wolf/fork">
+    <img src="https://img.shields.io/github/forks/OnlyVenkatadanush/Alias-wolf?style=for-the-badge">
+  </a>
 </p>
 
 ---
