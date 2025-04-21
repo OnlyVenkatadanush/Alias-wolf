@@ -36,8 +36,11 @@ async def check_site(session, site, username):
                 return {"site": site["name"], "url": url, "status": "Request Timeout","Profile link":None}
             else:
                 return {"site": site["name"], "url": url, "status": f"Status {response.status}","Profile link":None}
-    except Exception:
-        return {"site": site["name"], "url": "", "status": "Error"}
+    except aiohttp.ClientError as e:
+        return {"site": site["name"], "url": "", "status": "Client Error", "Profile link": None}
+    except Exception as e:
+        return {"site": site["name"], "url": "", "status": f"Error: {str(e)}", "Profile link": None}
+
 
 async def scan_all(username):
     async with aiohttp.ClientSession() as session:
@@ -45,6 +48,7 @@ async def scan_all(username):
         return await asyncio.gather(*tasks)
 
 def scan_username(username):
+    
     results = asyncio.run(scan_all(username))
     df = pd.DataFrame(results)
     return df
