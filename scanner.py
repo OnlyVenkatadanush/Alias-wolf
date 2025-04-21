@@ -8,15 +8,16 @@ import json
 with open('data/config.json', 'r') as f:
     sites = json.load(f)
     print("[DEBUG] Sites loaded:", sites)
-def getprofilelink(username,platform):
-    return f"https://{platform}.com/{username}"
+def getprofilelink(username,platform,site):
+    url = site["url"].format(username=username)
+    return f"{url}"
 
 async def check_site(session, site, username):
     try:
         url = site["url"].format(username=username)
         async with session.get(url, timeout=10) as response:
             if response.status == 200:
-                profile_link = getprofilelink(username, site["name"].lower())
+                profile_link = getprofilelink(username, site["name"].lower(),site)
                 return {"site": site["name"], "url": url, "status": "Found","Profile link":profile_link}
             elif response.status == 404:
                 return {"site": site["name"], "url": url, "status": "Not Found","Profile link":None}
