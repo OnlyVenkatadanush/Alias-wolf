@@ -2,7 +2,18 @@ import streamlit as st
 from scanner import scan_username
 from utils import save_results, export_to_pdf
 
-st.set_page_config(page_title="AliasWolf", page_icon="🐺", layout="wide")
+st.set_page_config(
+    page_title="AliasWolf",
+    page_icon="photos/icon.png",
+    layout="wide"
+)
+import base64
+
+def get_base64_of_image(img_path):
+    with open(img_path, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
 
 st.title("🐺 AliasWolf - Username Scanner")
 
@@ -52,23 +63,33 @@ else:
     st.warning("Please enter a username and start the scan!")
 
 # 🛠️ Custom CSS to expand column width nicely
+encoded_image = get_base64_of_image('photos/icon.png')
+
 st.markdown(
-    """
+    f"""
     <style>
-        div[data-testid="stDataFrame"] {
+        div[data-testid="stDataFrame"] {{
             width: 100% !important;
-        }
-        div[data-testid="stDataFrame"] table {
+        }}
+        div[data-testid="stDataFrame"] table {{
             width: 100% !important;
             table-layout: fixed;
-        }
-        div[data-testid="stDataFrame"] th, div[data-testid="stDataFrame"] td {
+        }}
+        div[data-testid="stDataFrame"] th, div[data-testid="stDataFrame"] td {{
             min-width: 150px;
             max-width: 400px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-        }
+        }}
+        .stApp {{
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url("data:image/png;base64,{encoded_image}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
     </style>
     """,
     unsafe_allow_html=True
