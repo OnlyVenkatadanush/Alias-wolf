@@ -1,6 +1,6 @@
 <h1 align="center">🐺 AliasWolf</h1>
 <p align="center">
-    <i>Find usernames across the web like a true hunter. Fast. Precise. Powerful.</i>
+    <i>Find usernames across the web like a true hunter — Fast. Precise. Powerful.</i>
 </p>
 
 <p align="center">
@@ -8,24 +8,39 @@
     <img src="https://img.shields.io/badge/Streamlit-Deployed-success?style=for-the-badge&logo=streamlit&logoColor=white&color=FF4B4B">
   </a>
   <a href="https://github.com/OnlyVenkatadanush/Alias-wolf/stargazers">
-    <img src="https://img.shields.io/github/stars/OnlyVenkatadanush/Alias-wolf?style=for-the-badge">
+    <img src="https://img.shields.io/github/stars/OnlyVenkatadanush/Alias-wolf?style=for-the-badge&color=yellow">
   </a>
   <a href="https://github.com/OnlyVenkatadanush/Alias-wolf/fork">
-    <img src="https://img.shields.io/github/forks/OnlyVenkatadanush/Alias-wolf?style=for-the-badge">
+    <img src="https://img.shields.io/github/forks/OnlyVenkatadanush/Alias-wolf?style=for-the-badge&color=lightblue">
   </a>
-    
 </p>
 
+<p align="center">
+  <a href="https://github.com/OnlyVenkatadanush">
+    <img src="https://img.shields.io/badge/GitHub-OnlyVenkatadanush-0A66C2?style=for-the-badge&logo=github">
+  </a>
+  <a href="https://github.com/OnlyVenkatadanush/Alias-wolf/stargazers">
+    <img src="https://img.shields.io/badge/Star-Repo-yellow?style=for-the-badge">
+  </a>
+  <a href="https://github.com/OnlyVenkatadanush">
+    <img src="https://img.shields.io/badge/Follow-Me-0A66C2?style=for-the-badge">
+  </a>
+</p>
 
 ---
-[![Visit My Profile](https://img.shields.io/badge/GitHub-OnlyVenkatadanush-0A66C2?style=for-the-badge)](https://github.com/OnlyVenkatadanush)
-[![Star](https://img.shields.io/badge/Star-Repo-yellow?style=for-the-badge)](https://github.com/OnlyVenkatadanush/Alias-wolf/stargazers)
-[![Follow](https://img.shields.io/badge/Follow-Me-0A66C2?style=for-the-badge)](https://github.com/OnlyVenkatadanush)
+
 ## 🚀 What is AliasWolf?
 
-AliasWolf is a blazing fast **username scanner** that checks if a given username exists across multiple platforms — like social media, forums, websites — and provides you with the direct **profile link**.  
-Built with love using **Streamlit**, **Python Asyncio**, and **aiohttp**.
-[![Visit Alias wolf](https://img.shields.io/badge/Check_it_Out-0A66C2?style=for-the-badge)](https://aliaswolf.streamlit.app/)
+**AliasWolf** is a blazing-fast **username scanner** that hunts for a username’s existence across multiple platforms — from social media to developer networks — and instantly returns direct profile links.
+
+Built with **Streamlit**, **Python Asyncio**, and **aiohttp**, it’s a true async beast in the username tracking game.
+
+<p align="center">
+  <a href="https://aliaswolf.streamlit.app/">
+    <img src="https://img.shields.io/badge/Try%20AliasWolf-Click%20Here-FF4B4B?style=for-the-badge&logo=wolf&logoColor=white">
+  </a>
+</p>
+
 ---
 
 ## 🧩 Features
